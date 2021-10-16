@@ -1,5 +1,11 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
+/**
+ * Clase que modela los productos vendidos en una tienda virtual.
+ * @author Juan Carlos Bautista Sandoval
+ * @version 1.0.0
+ * @since 14-10-21
+ */
 public class Producto {
     
     private String nombre;
@@ -9,6 +15,15 @@ public class Producto {
     private String nombreArchivoImagen;
     private float descuento;
 
+    /**
+     * metodo que contruye un producto.
+     * @param nombre el nombre del producto.
+     * @param precio el precio del producto.
+     * @param cantidadDeUnidades la catidad de unidades de dicho producto.
+     * @param descripcion la descripcion del producto.
+     * @param nombreArchivoImagen el nombre de la imagen del producto.
+     * @param descuento el descuento del producto.
+     */
     public Producto(String nombre, float precio, int cantidadDeUnidades, String descripcion,
             String nombreArchivoImagen, float descuento) {
         this.nombre = nombre;
@@ -19,50 +34,98 @@ public class Producto {
         this.descuento = descuento;
     }
 
+    /**
+     * Metodo que obtiene el nombre de un producto dado.
+     * @return String que contiene el nombre del producto.
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Metodo que modifica el nombre de un producto dado.
+     * @param nombre un String que contien el nuevo nombre de un producto.
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Metodo para obtener el precio de un producto dado.
+     * @return float que contiene el precio de un producto.
+     */
     public float getPrecio() {
         return precio;
     }
 
+    /**
+     * Metodo que modifica el precio de un producto dado.
+     * @param precio un float que contien el nuevo precio de un producto.
+     */
     public void setPrecio(float precio) {
         this.precio = precio;
     }
 
+    /**
+     * Metodo para obtener la cantidad de unidades de un producto.
+     * @return int con la cantidad de unidades de un producto.
+     */
     public int getCantidadDeUnidades() {
         return cantidadDeUnidades;
     }
 
+    /**
+     * Metodo que modifica la cantidad de unidades de un producto dado.
+     * @param cantidadDeUnidades un int que contiene la nueva cantidad de unidades de un producto.
+     */
     public void setCantidadDeUnidades(int cantidadDeUnidades) {
         this.cantidadDeUnidades = cantidadDeUnidades;
     }
 
+    /**
+     * Metodo para obtener la descripcion de un producto.
+     * @return String con la descripcion del producto.
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Metodo para modificar la descripcion de un producto dado.
+     * @param descripcion un String con la nueva descripcion de un producto.
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Metodo para obtener el nombre de archivo de imagen de un producto dado.
+     * @return String con el nombre de archivo de imagen de un producto.
+     */
     public String getNombreArchivoImagen() {
         return nombreArchivoImagen;
     }
 
+    /**
+     * Metodo para modificar el nombre de archivo de imagen de un producto.
+     * @param nombreArchivoImagen un String con el nuevo nombre de archivo de imagen de un producto.
+     */
     public void setNombreArchivoImagen(String nombreArchivoImagen) {
         this.nombreArchivoImagen = nombreArchivoImagen;
     }
 
+    /**
+     * Metodo para obtener el descuento de un producto.
+     * @return float con el descuento de un producto dado.
+     */
     public float getDescuento() {
         return descuento;
     }
 
+    /**
+     * Metodo para modifecar el descuento de un producto dado.
+     * @param descuento un float con el nuevo descuento de un producto dado.
+     */
     public void setDescuento(float descuento) {
         this.descuento = descuento;
     }
@@ -119,7 +182,5 @@ public class Producto {
                 + descuento + ", nombre=" + nombre + ", nombreArchivoImagen=" + nombreArchivoImagen + ", precio="
                 + precio + "]";
     }
-
-    
 
 }

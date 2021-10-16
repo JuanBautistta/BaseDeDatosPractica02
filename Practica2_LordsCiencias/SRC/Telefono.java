@@ -1,17 +1,32 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
+/**
+ * Clase que modela numeros de telefonos de personas.
+ */
 public class Telefono {
 
     private int numeroDeTelefono;
 
+    /**
+     * Metodo para crear numeros de telefonos.
+     * @param numeroDeTelefono
+     */
     public Telefono(int numeroDeTelefono) {
         this.numeroDeTelefono = numeroDeTelefono;
     }
 
+    /**
+     * Metodo que obtiene el numero de telefono.
+     * @return
+     */
     public int getNumeroDeTelefono() {
         return numeroDeTelefono;
     }
 
+    /**
+     * Metodo que cambia el numero de telefono de un Telefono.
+     * @param numeroDeTelefono un int con el nuevo numero de telefono.
+     */
     public void setNumeroDeTelefono(int numeroDeTelefono) {
         this.numeroDeTelefono = numeroDeTelefono;
     }

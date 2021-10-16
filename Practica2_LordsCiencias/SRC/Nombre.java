@@ -1,27 +1,61 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
+/**
+ * CLase para representar los nombres de la persona.
+ * @author Juan Carlos Bautista Sandoval
+ * @version 1.0.0
+ * @since 14-10-21
+ */
 public class Nombre {
 
     private String nombrePersona;
     private String apellidoP;
     private String apellidoM;
-
     
+    /**
+     * Metodo que obtiene el nombre de una persona dada.
+     * @return String con el nombre.
+     */
     public String getNombrePersona() {
         return nombrePersona;
     }
+
+    /**
+     * Metodo para modificar el nombre de una persona.
+     * @param nombrePersona un String que contiene el nuevo nombre de una persona.
+     */
     public void setNombrePersona(String nombrePersona) {
         this.nombrePersona = nombrePersona;
     }
+
+    /**
+     * Metodo que obtiene el apellido paterno de una persona dada.
+     * @return String con el apellido paterno.
+     */
     public String getApellidoP() {
         return apellidoP;
     }
+
+    /**
+     * Metodo para modificar el apellido paterno de una persona.
+     * @param apellidoP un String que contiene el nuevo apellido paterno de una persona.
+     */
     public void setApellidoP(String apellidoP) {
         this.apellidoP = apellidoP;
     }
+
+    /**
+     * Metodo que obtiene el apellido materno de una persona dada.
+     * @return String con el apellido materno.
+     */
     public String getApellidoM() {
         return apellidoM;
     }
+
+    /**
+     * Metodo para modificar el apellido materno de una persona.
+     * @param apellidoM un String que contiene el nuevo apellido materno de una persona.
+     */
     public void setApellidoM(String apellidoM) {
         this.apellidoM = apellidoM;
     }
@@ -35,6 +69,7 @@ public class Nombre {
         result = prime * result + ((nombrePersona == null) ? 0 : nombrePersona.hashCode());
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -65,6 +100,5 @@ public class Nombre {
     public String toString() {
         return "Nombre [apellidoM=" + apellidoM + ", apellidoP=" + apellidoP + ", nombrePersona=" + nombrePersona + "]";
     }
-
 
 }

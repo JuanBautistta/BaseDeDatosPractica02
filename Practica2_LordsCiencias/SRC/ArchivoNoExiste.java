@@ -7,6 +7,10 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 */
 public class ArchivoNoExiste extends Exception {
     
+    /**
+     * Metodo para lanzar una exepción.
+     * @param message el mensaje que contendra el excepción.
+     */
     public ArchivoNoExiste(String message){
         super(message);
     }

@@ -1,5 +1,11 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
+/**
+ * CLase para representar las direcciónes de alguna persona,tiendas,etc.
+ * @author Juan Carlos Bautista Sandoval
+ * @version 1.0.0
+ * @since 14-10-21
+ */
 public class Direccion {
 
     private int codigoPostal;
@@ -8,6 +14,14 @@ public class Direccion {
     private String calle;
     private int numero;
     
+    /**
+     * Metodo para contruir direcciones.
+     * @param codigoPostal de la direccion
+     * @param municipio de la direccion.
+     * @param estado de la direccion.
+     * @param calle de la direccion.
+     * @param numero de la direccion.
+     */
     public Direccion(int codigoPostal, String municipio, String estado, String calle, int numero) {
         this.codigoPostal = codigoPostal;
         this.municipio = municipio;
@@ -16,42 +30,82 @@ public class Direccion {
         this.numero = numero;
     }
 
+    /**
+     * Metodo que obtiene el codigo postal de una direccion dada.
+     * @return int con el codigo postal.
+     */
     public int getCodigoPostal() {
         return codigoPostal;
     }
 
+    /**
+     * Metodo para modificar el codigo postal de una direccion dado.
+     * @param codigoPostal un int que contiene el nuevo codigo postal de una direccion.
+     */
     public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
+    /**
+     * Metodo que obtiene el municipio de una direccion dada.
+     * @return String con el municipio.
+     */
     public String getMunicipio() {
         return municipio;
     }
 
+    /**
+     * Metodo para modificar el municipio de una direccion dada.
+     * @param municipio un String que contiene el nuevo municipo de una direccion.
+     */
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
     }
 
+    /**
+     * Metodo que obtiene el estado de una direccion dada.
+     * @return String con el estado.
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * Metodo para modificar el estado de una direccion dada.
+     * @param estado un  String que contiene el nuevo estado de una direccion.
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
+    /**
+     * Metodo que obtiene la calle de una direccion dada.
+     * @return String con la calle.
+     */
     public String getCalle() {
         return calle;
     }
 
+    /**
+     * Metodo para modificar la calle de una direccion dada.
+     * @param calle un String que contiene la nueva calle de una direccion.
+     */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    /**
+     * Metodo que obtiene el numero de una direccion dada.
+     * @return int con el numero de la direccion.
+     */
     public int getNumero() {
         return numero;
     }
 
+    /**
+     * Metodo para modificar el numero de una direccion dada.
+     * @param numero un int que contiene el nuevo numero de una direccion.
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -105,6 +159,4 @@ public class Direccion {
                 + municipio + ", numero=" + numero + "]";
     }
     
-    
-
 }
