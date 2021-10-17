@@ -5,20 +5,22 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public class Main {
-    
+    public static final String negro = "\u001B[0m";
+    public static final String rojo = "\u001B[31m";
+
     public static void main(String[] args) {
-        boolean bandera;
-	    int opcion = 0;
-	    Scanner input = new Scanner(System.in);
+
 	    ArrayList<Categoria> operadores = new ArrayList<>();
-        operadores.add(new Categoria("canica", "son grandes", 100));
-        operadores.add(new Categoria("canica2", "son grandes2", 100));
-        operadores.add(new Categoria("canica3", "son grandes3", 100));
-        OperarArchivos archivo = new OperarArchivos("categoria.csv");
-	    do {
-            bandera = true;
-            System.out.println("Ingresa la opción deseada\n" + "1-Agregar Operador\n" + "2-Ver Operadores\n"
-            + "3-Editar Operador\n" + "4-Borrar Operador\n" + "5-Salir\n");
+      operadores.add(new Categoria("canica", "son grandes", 100));
+      operadores.add(new Categoria("canica2", "son grandes2", 100));
+      operadores.add(new Categoria("canica3", "son grandes3", 100));
+      OperarArchivos archivo = new OperarArchivos("categoria.csv");
+      GestionTienda gestor = new GestionTienda();
+      gestor.gestionarTienda();
+
+            /*
+            System.out.println("\t1-Agregar Operador\n" + "\t2-Ver Operadores\n"
+            + "\t3-Editar Operador\n" + "\t4-Borrar Operador\n" + "\t5-Salir\n" + "\n\tIngresa la opción deseada\n" );
             try {
                 opcion = input.nextInt();
             } catch (InputMismatchException e) {
@@ -49,8 +51,7 @@ public class Main {
                     default:
                         break;
                 }
-            }
-	    } while (bandera);
+            }*/
+	    //} while (bandera);
     }
-
 }

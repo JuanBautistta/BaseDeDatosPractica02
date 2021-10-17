@@ -1,21 +1,21 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
 /**
- * Clase que representa los Clientes en una tienda virtual. 
+ * Clase que representa los Clientes en una tienda virtual.
  * Esta clase hereda de la clase Persona, la cual contiene los atributos básicos
- * de los clientes y proveedores. 
+ * de los clientes y proveedores.
  * @author Juan Carlos Bautista Sandoval
  * @version 1.0.0
  * @since 14-10-21
  */
 public class Cliente extends Persona {
-    
+
     private Direccion direccion;
     private String correoElectronico;
     private String password;
     private String metodoDePago;
     private int puntos;
-    
+
     /**
      * Metod para contruir un cliente de la tienda virtual.
      * @param nombre el nombre de la categoria.
@@ -66,7 +66,7 @@ public class Cliente extends Persona {
      * Metodo para modificar la direccion de un cliente.
      * @param direccion una Direccion que contiene la nueva direccion del cliente.
      */
-    public void setDireccion(String direccion) {
+    public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
 
@@ -120,7 +120,7 @@ public class Cliente extends Persona {
 
     /**
      * Metodo para obtener los puntos de un cliente dado.
-     * @return int con el numero de puntos actuales que tiene el cliente. 
+     * @return int con el numero de puntos actuales que tiene el cliente.
      */
     public int getPuntos() {
         return puntos;

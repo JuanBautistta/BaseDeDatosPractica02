@@ -11,7 +11,7 @@ public class Persona {
     private Nombre nombre;
     private String fechaNacimiento;
     private String genero;
-    private final String CURP;
+    private String CURP;
 
     /**
      * Metodo para contruir Personas.
@@ -30,7 +30,8 @@ public class Persona {
     /**
      * Metodo contructor por omision que construye personas.
      */
-    public Persona(){}
+    public Persona(){
+    }
 
     /**
      * Metodo que obtiene el nombre de una persona.

@@ -1,5 +1,4 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
-
 /**
  * Clase pra representar las diferentes categorias que maneja una tienda.
  * @author Juan Carlos Bautista Sandoval
@@ -7,11 +6,11 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
  * @since 14-10-21
  */
 public class Categoria {
-    
+
     private String nombre;
     private String descripcion;
     private int numeroDeProductos;
-    
+
     /**
      * Metodo para crear Categorias.
      * @param nombre el nombre de la categoria.
@@ -26,7 +25,7 @@ public class Categoria {
 
     /**
      * Metodo que obtiene el nombre de la categoria.
-     * @return String que representa el nombre de la categoria. 
+     * @return String que representa el nombre de la categoria.
      */
     public String getNombre() {
         return nombre;
@@ -58,7 +57,7 @@ public class Categoria {
 
     /**
      * Metodo para obtener el numero de productos en una categoria.
-     * @return int con el numero de productos en una categoria. 
+     * @return int con el numero de productos en una categoria.
      */
     public int getNumeroDeProductos() {
         return numeroDeProductos;
