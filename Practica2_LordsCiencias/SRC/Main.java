@@ -3,12 +3,14 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class Main {
     public static final String negro = "\u001B[0m";
     public static final String rojo = "\u001B[31m";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException, Exception {
 
 	    ArrayList<Categoria> operadores = new ArrayList<>();
       operadores.add(new Categoria("canica", "son grandes", 100));
