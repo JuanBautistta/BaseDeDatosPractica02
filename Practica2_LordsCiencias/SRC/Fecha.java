@@ -41,6 +41,14 @@ public class Fecha{
     }
 
     /**
+    * Método que regresa una un hash de una instancia Fecha.
+    * @return El hash de la instancia
+    */
+    public int hashCode(){
+	return fecha.hashCode();
+    }
+
+    /**
     * Método para mostrar la fecha como una cadena en formato yyyy/mm/dd
     * @return La fecha como cadena
     */
