@@ -8,20 +8,52 @@ import java.io.FileNotFoundException;
 
 public class GestionTienda{
 
+  private String archClientes;
+  private String archProveedores;
+  private String archProductos;
+  private String archCategorias;
+  private ArrayList<Cliente> listaClientes;
+  private ArrayList<Provedor> listaProveedores;
+  private ArrayList<Producto> listaProductos;
+  private ArrayList<Categoria> listaCategorias;
+
+  /**
+  * Constructor de la clase GestionTienda
+  */
+  public GestionTienda(){
+    archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
+    archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
+    archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
+    archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
+    listaClientes = new ArrayList<>();
+    listaProveedores = new ArrayList<>();
+    listaProductos = new ArrayList<>();
+    listaCategorias = new ArrayList<>();
+  }
+
+
+
+
   /**
     * Método que inicia la gestión de la tienda virtual.
     */
   public void gestionarTienda() throws FileNotFoundException, IOException, Exception{
     boolean bandera = true;
 	  Scanner input = new Scanner(System.in);
-    String archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
+
+    /*String archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
     String archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
     String archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
     String archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
     ArrayList<Cliente> listaClientes = new ArrayList<>();
     ArrayList<Provedor> listaProveedores = new ArrayList<>();
     ArrayList<Producto> listaProductos = new ArrayList<>();
-    ArrayList<Categoria> listaCategorias = new ArrayList<>();
+    ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
+    /*
+    ArrayList<Cliente> listaClientes = new ArrayList<>();
+    ArrayList<Provedor> listaProveedores = new ArrayList<>();
+    ArrayList<Producto> listaProductos = new ArrayList<>();
+    ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
     LecturaYEscritura lectura = new LecturaYEscritura();
 
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
@@ -247,6 +279,9 @@ public class GestionTienda{
     switch (eleccion){
       case 1:
         System.out.println("Se llama a la fución agregar");
+        agregaCliente();
+        for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
+
         break;
       case 2:
         System.out.println("Se llama a la función consultar");
@@ -262,6 +297,50 @@ public class GestionTienda{
     }
   }
 
+
+  /**
+  * Método que agrega un cliente a la listaClientes
+  * @param input Objeto de la clase Scanner para solicitar datos del nuevo cliente
+  */
+  private void agregaCliente(){
+    System.out.println("\n=============== Agregar Cliente ===============");
+    Scanner input = new Scanner(System.in);
+    System.out.print("Nombre: ");
+    String nom = input.nextLine();
+    System.out.print("Apellido paterno: ");
+    String apellidoP = input.nextLine();
+    System.out.print("Apellido materno: ");
+    String apellidoM = input.nextLine();
+    System.out.print("Fecha de nacimiento: ");
+    String nacimiento = input.nextLine();
+    System.out.print("Genero: ");
+    String genero = input.nextLine();
+    System.out.print("CURP: ");
+    String curp = input.nextLine();
+    System.out.print("Calle: ");
+    String calle = input.nextLine();
+    System.out.print("Número: ");
+    int numero = input.nextInt();
+    System.out.print("Estado: ");
+    String estado = input.nextLine();
+    System.out.print("Municipio: ");
+    String municipio = input.nextLine();
+    System.out.print("Código postal: ");
+    int cp = input.nextInt();
+    System.out.print("Correo electrónico: ");
+    String correo = input.nextLine();
+    System.out.print("Password: ");
+    String pass = input.nextLine();
+    System.out.print("Forma de pago: ");
+    String pago = input.nextLine();
+    System.out.print("Puntos: ");
+    int puntos = input.nextInt();
+    Nombre nombre = new Nombre(nom, apellidoP, apellidoM);
+    Direccion direccion = new Direccion(cp, municipio, estado, calle, numero);
+    Cliente nuevo = new Cliente(nombre, nacimiento, genero, curp, direccion, correo, pass, pago, puntos);
+    listaClientes.add(nuevo);
+    System.out.print("Se agregó el nuevo cliente.");
+  }
 
   /**
   * Método que manda un mensaje de error al usuario
