@@ -116,6 +116,25 @@ public class GestionTienda{
     return opcion;
   }
 
+  private Categoria agregaCategoria(){
+    try {
+      Scanner categoria = new Scanner(System.in);
+      String nombre;
+      String descripcion;
+      int numeroDeProductos;
+      System.out.println("Dame un nombre para la categoria");
+      nombre = categoria.nextLine();
+      System.out.println("Dame una descripcion sobre dicha categoria");
+      descripcion = categoria.nextLine();
+      System.out.println("Dame el numero de productos de esa categoria");
+      numeroDeProductos = categoria.nextInt();
+      if (numeroDeProductos < 0) error();
+      return new Categoria(nombre, descripcion, numeroDeProductos);
+    } catch (Exception e) {
+      input.next();
+      error();
+    }
+  }
 
   /**
   * Método que llama a la función de Categoría que eligió el usuario
@@ -124,16 +143,47 @@ public class GestionTienda{
   private void gestionarCategorias(int eleccion){
     switch (eleccion){
       case 1:
-        System.out.println("Se llama a la fución agregar");
+        listaCategorias.add(agregaCategoria());
         break;
       case 2:
-        System.out.println("Se llama a la función consultar");
+        for (Categoria categoria : listaCategorias) {
+          System.out.println(categoria.toString());
+        }
         break;
       case 3:
-        System.out.println("Se llama a la función editar");
+        Categoria categoria = agregaCategoria();
+        Scanner scn = new Scanner(System.in);
+        int indice = listaCategorias.indexOf(categoria);
+        if (indice != 1) {
+          System.out.println("indica que atributo deceas modificar:");
+          System.out.println("Nombre - 1");
+          System.out.println("descripcion - 2");
+          System.out.println("Numero de productos - 3");
+          int elec = input.nextInt();
+          if(elec<1 || elec >3) error();
+          System.out.println("Dame el nuevo valor");
+          String nuevoValor = scn.nextLine();
+          switch (elec) {
+            case 1:
+              listaCategorias.get(indice).setNombre(nuevoValor);  
+              break;
+            case 2:
+              listaCategorias.get(indice).setDescripcion(nuevoValor);
+              break;
+            case 3:
+              listaCategorias.get(indice).setNumeroDeProductos(Integer.parseInt(nuevoValor));
+              break;
+          }
+        }
         break;
       case 4:
-        System.out.println("Se llama a la función eliminar");
+        Categoria categoria2 = agregaCategoria();
+        int indice2 = listaCategorias.indexOf(categoria2);
+        if(indice2 != 1){
+          listaCategorias.remove(indice2);
+        }else{
+          System.out.println("EL elemento no existe");
+        }
         break;
       default:
         break;
