@@ -3,6 +3,13 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 import java.time.LocalDate;
 import java.time.Period;
 
+/**
+ * CLase para representar fechas.
+ * @author Juan Manuel Diaz Quiñonez
+ * @version 1.0.0
+ * @since 17-10-21
+ */
+
 public class Fecha{
     private LocalDate fecha;
     private static final LocalDate HOY = LocalDate.now();

@@ -9,7 +9,7 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 public class Persona {
 
     private Nombre nombre;
-    private String fechaNacimiento;
+    private Fecha fechaNacimiento;
     private String genero;
     private String CURP;
 
@@ -20,7 +20,7 @@ public class Persona {
      * @param genero el genero de la persona.
      * @param curp el curp de la persona.
      */
-    public Persona(Nombre nombre, String fechaNacimiento, String genero, String curp) {
+    public Persona(Nombre nombre, Fecha fechaNacimiento, String genero, String curp) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
@@ -53,7 +53,7 @@ public class Persona {
      * Metodo que obtiene la fecha de nacimiento de una persona.
      * @return String con la fecha de nacimiento.
      */
-    public String getFechaNacimiento() {
+    public Fecha getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -61,7 +61,7 @@ public class Persona {
      * Metodo para modificar la fecha de nacimiento de una persona.
      * @param fechaNacimiento un String que contiene la nueva fecha de nacimiento.
      */
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Fecha fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
