@@ -107,7 +107,7 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return this.descripcion + "," + this.nombre + "," + Integer.toString(this.numeroDeProductos);
+        return this.nombre + "," + this.descripcion + "," + this.numeroDeProductos;
     }
 
 }

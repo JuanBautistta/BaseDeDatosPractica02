@@ -178,8 +178,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return Integer.toString(this.cantidadDeUnidades) + "," + this.descripcion + "," + Double.toString(this.descuento) +
-               "," + this.nombre + "," + this.nombreArchivoImagen + Float.toString(this.precio);
+        return nombre + "," + precio + "," + cantidadDeUnidades +
+            "," + descripcion + "," + nombreArchivoImagen + descuento;
     }
 
 }

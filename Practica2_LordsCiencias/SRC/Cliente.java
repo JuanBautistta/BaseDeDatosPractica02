@@ -182,8 +182,8 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return this.correoElectronico + "," + this.direccion.toString() + "," + this.metodoDePago + ","
-               + this.password + "," + Integer.toString(this.puntos);
+        return super.toString() +  "," +this.direccion.toString() + "," + this.correoElectronico + 
+            "," + this.password+ "," + this.metodoDePago + "," + Integer.toString(this.puntos);
     }
 
 }

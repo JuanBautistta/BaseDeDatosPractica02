@@ -130,7 +130,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return this.CURP + "," + this.fechaNacimiento + "," + this.genero + "," + this.nombre.toString();
+        return this.nombre.toString() + "," + this.fechaNacimiento + "," + this.genero + "," + this.CURP;
     }
 
 }

@@ -98,7 +98,7 @@ public class Provedor {
         return true;
     }
 
-    private String toStringTelefonos() {
+    /*private String toStringTelefonos() {
         String str = "";
         for (int i = 0; i < this.telefonos.length; i++) {
             if (i > 0) {
@@ -108,11 +108,16 @@ public class Provedor {
             }
         }
         return str;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return this.direccion.toString() + "," + this.nombre + "," + this.registroFederalDeContributentes + "," + this.toStringTelefonos();
+        String tel = "";
+        for (Telefono telefono : telefonos) {
+            tel += telefono.toString() + "#";
+        } 
+        tel = tel.substring(0, tel.length()-1);
+        return nombre + "," + registroFederalDeContributentes + "," + direccion + "," + tel;
     }
 
 }

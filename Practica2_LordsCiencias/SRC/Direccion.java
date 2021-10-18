@@ -160,8 +160,8 @@ public class Direccion {
              + municipio + ", numero=" + numero + "]";
          * 
          */
-        return this.calle + "," + Integer.toString(this.codigoPostal) + "," + this.estado + "," + this.municipio + ","
-               + Integer.toString(this.numero);
+        return this.codigoPostal + "," + this.municipio + "," + this.estado + "," + this.calle + ","
+               + this.numero;
     }
     
 }
