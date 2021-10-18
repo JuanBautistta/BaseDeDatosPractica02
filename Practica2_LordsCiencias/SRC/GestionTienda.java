@@ -212,10 +212,8 @@ public class GestionTienda{
   private void gestionarClientes(int eleccion){
     switch (eleccion){
       case 1:
-        System.out.println("Se llama a la fución agregar");
         agregaCliente();
         for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
-
         break;
       case 2:
         System.out.println("Se llama a la función consultar");
@@ -234,7 +232,6 @@ public class GestionTienda{
 
   /**
   * Método que agrega un cliente a la listaClientes
-  * @param input Objeto de la clase Scanner para solicitar datos del nuevo cliente
   */
   private void agregaCliente(){
     System.out.println("\n=============== Agregar Cliente ===============");
@@ -253,31 +250,53 @@ public class GestionTienda{
     String curp = input.nextLine();
     System.out.print("Calle: ");
     String calle = input.nextLine();
-    System.out.print("Número: ");
-    int numero = input.nextInt();
-    input.nextLine();
+    int numero = dameEntero("Numero: ");
     System.out.print("Estado: ");
     String estado = input.nextLine();
     System.out.print("Municipio: ");
     String municipio = input.nextLine();
-    System.out.print("Código postal: ");
-    int cp = input.nextInt();
-    input.nextLine();
+    int cp = dameEntero("Código postal: ");
     System.out.print("Correo electrónico: ");
     String correo = input.nextLine();
     System.out.print("Password: ");
     String pass = input.nextLine();
     System.out.print("Forma de pago: ");
     String pago = input.nextLine();
-    System.out.print("Puntos: ");
-    int puntos = input.nextInt();
-    input.nextLine();
+    int puntos = dameEntero("Puntos: ");
     Nombre nombre = new Nombre(nom, apellidoP, apellidoM);
     Direccion direccion = new Direccion(cp, municipio, estado, calle, numero);
     Cliente nuevo = new Cliente(nombre, nacimiento, genero, curp, direccion, correo, pass, pago, puntos);
     listaClientes.add(nuevo);
     System.out.println("Se agregó exitosamente.\n");
   }
+
+  /**
+  * Método que verifica que le pasen un entero mayor o igual a cero
+  * @param valorDeseado Cadena que se imprime para solicitar el dato
+  * @return Entero mayor o igual a cero
+  */
+  private int dameEntero(String valorDeseado){
+    String negro = "\u001B[0m";
+    String rojo = "\u001B[31m";
+    Scanner input = new Scanner(System.in);
+    int numero = 0;
+    boolean bandera = true;
+    do{
+      System.out.print(valorDeseado);
+      try {
+          numero = input.nextInt();
+          if(numero < 0) System.out.println(rojo + "Error: " + negro + "Entrada inválida.");
+          else bandera = false;
+      } catch (InputMismatchException e) {
+        input.next();
+        System.out.println(rojo + "Error: " + negro + "Entrada inválida.");
+      }
+    } while (bandera);
+    return numero;
+  }
+
+
+
 
 
   /**
