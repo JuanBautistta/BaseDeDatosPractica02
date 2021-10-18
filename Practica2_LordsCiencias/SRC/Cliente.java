@@ -29,7 +29,7 @@ public class Cliente extends Persona {
      * @param puntos los puntos que va acumulando el cliente para obtener promociones exclusivas.
      */
     public Cliente(Nombre nombre, String fechaNacimiento, String genero, String curp, Direccion direccion,
-            String correoElectronico, String password, String metodoDePago, int puntos) {
+        String correoElectronico, String password, String metodoDePago, int puntos) {
         super(nombre, fechaNacimiento, genero, curp);
         this.direccion = direccion;
         this.correoElectronico = correoElectronico;

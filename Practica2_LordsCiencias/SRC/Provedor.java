@@ -9,12 +9,15 @@ import java.util.Arrays;
  * @since 14-10-21
  */
 public class Provedor {
-    
+
     private String nombre;
     private String registroFederalDeContributentes;
     private Direccion direccion;
     private Telefono[] telefonos;
-    
+
+    /**
+    * Constructor de la clase proveedor
+    */  
     public Provedor(String nombre, String registroFederalDeContributentes, Direccion direccion, Telefono[] telefonos) {
         this.nombre = nombre;
         this.registroFederalDeContributentes = registroFederalDeContributentes;

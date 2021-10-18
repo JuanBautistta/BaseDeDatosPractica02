@@ -1,6 +1,2 @@
-Ricardo,Badillo,Macias,12/06/1998,1era Cerrada ...,M,Licenciatura,55555555555,2pm a 4pm,Lunes
-Saul,Badillo,Macias,12/06/1999,1ra Cerrada,Licenciatura,55555555,8pm a 17pm,Martes
-Sandra,Badillo,Macias,12/06/1999,1ra Cerrada,Licenciatura,55555555,8pm a 17pm,Martes
-Miguel,Badillo,Macias,12/06/1999,1ra Cerrada,Licenciatura,55555555,8pm a 17pm,Martes
-null
-null
+nombre,apellP,apellM,nacimiento,genero,curp,0000,Municipio,Estado,calle,01,correo,pass,pago,100
+Jose,martinez,Lopez,22/09/2001,Hombre,MALJ0922,11800,Azcapotzalco,Ciudad de Mexico,Calle norte,101,jose@gmail.com,Pass1234,Tarjeta de Crédito,56
