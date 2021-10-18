@@ -11,7 +11,19 @@ public class Nombre {
     private String nombrePersona;
     private String apellidoP;
     private String apellidoM;
-    
+
+    /**
+    * Constructor de la clase Nombre
+    * @param nombre Nombre de la persona
+    * @param apellidoP apellido paterno
+    * @param apellidoM apellido materno
+    */
+    public Nombre(String nombre, String apellidoP, String apellidoM){
+      nombrePersona = nombre;
+      this.apellidoP = apellidoP;
+      this.apellidoM = apellidoM;
+    }
+
     /**
      * Metodo que obtiene el nombre de una persona dada.
      * @return String con el nombre.
@@ -59,7 +71,7 @@ public class Nombre {
     public void setApellidoM(String apellidoM) {
         this.apellidoM = apellidoM;
     }
-    
+
     @Override
     public int hashCode() {
         final int prime = 31;

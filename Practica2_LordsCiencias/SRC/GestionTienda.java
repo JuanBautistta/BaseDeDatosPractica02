@@ -18,18 +18,22 @@ public class GestionTienda{
     String archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
     String archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
     String archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
-    ArrayList<String> clientes = new ArrayList<>();
-    ArrayList<String> provedores = new ArrayList<>();
-    ArrayList<String> productos = new ArrayList<>();
-    ArrayList<String> categorias = new ArrayList<>();
+    ArrayList<Cliente> listaClientes = new ArrayList<>();
+    ArrayList<Provedor> listaProveedores = new ArrayList<>();
+    ArrayList<Producto> listaProductos = new ArrayList<>();
+    ArrayList<Categoria> listaCategorias = new ArrayList<>();
     LecturaYEscritura lectura = new LecturaYEscritura();
 
-    clientes = lectura.leeArchivo1(archClientes);
-    provedores = lectura.leeArchivo1(archProveedores);
-    productos = lectura.leeArchivo1(archProductos);
-    categorias = lectura.leeArchivo1(archCategorias);
-
-    //for (int i = 0; i < categorias.size(); i++) System.out.println(clientes.get(i));
+    listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
+    listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
+    listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
+    listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
+    //for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i));
+    //Los println's
+    for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
+    for (int i = 0; i < listaProveedores.size(); i++) System.out.println(listaProveedores.get(i).toString());
+    for (int i = 0; i < listaProductos.size(); i++) System.out.println(listaProductos.get(i).toString());
+    for (int i = 0; i < listaCategorias.size(); i++) System.out.println(listaCategorias.get(i).toString());
     do{
       switch (menuPrincipal(input)){
       case 0:
@@ -216,5 +220,98 @@ public class GestionTienda{
     String negro = "\u001B[0m";
     String rojo = "\u001B[31m";
     System.out.println(rojo + "\nError: " + negro + "Opción inválida." + "\nIntente de nuevo e ingrese una opción válida.");
+  }
+
+
+  /**
+  * Método que genera una lista de clientes
+  * @param datos Lista Lista con los datos, a partir de ellos se generan los clientes
+  * @return Regresa una lista con clientes
+  */
+  private ArrayList<Cliente> listarClientes(ArrayList<String> datos){
+    ArrayList<Cliente> clientes = new ArrayList<>();
+    for (int i = 0; i < datos.size(); i++){
+      String[] parts = datos.get(i).split(",");
+      Nombre nombre = new Nombre(parts[0], parts[1], parts[2]);
+      String nacimiento = parts[3];
+      String genero = parts[4];
+      String curp = parts[5];
+      Direccion direc = new Direccion(Integer.parseInt(parts[6]), parts[7], parts[8], parts[9], Integer.parseInt(parts[10]));
+      String correo = parts[11];
+      String pass = parts[12];
+      String pago = parts[13];
+      int puntos = Integer.parseInt(parts[14]);
+      Cliente cliente = new Cliente(nombre, nacimiento, genero, curp, direc, correo, pass, pago, puntos);
+      clientes.add(cliente);
+    }
+    return clientes;
+  }
+
+
+  /**
+  * Método que genera una lista de proveedores
+  * @param datos Lista con los datos, a partir de ellos se generan los proveedores
+  * @return Regresa una lista con los proveedores
+  */
+  private ArrayList<Provedor> listarProveedores(ArrayList<String> datos){
+    ArrayList<Provedor> proveedores = new ArrayList<>();
+    for (int i = 0; i < datos.size(); i++){
+      String[] parts = datos.get(i).split(",");
+      String nombre = parts[0];
+      String RFC = parts[1];
+      Direccion direc = new Direccion(Integer.parseInt(parts[2]), parts[3], parts[4], parts[5], Integer.parseInt(parts[6]));
+      String[] numeros = parts[7].split("#");
+      Telefono[] telefonos = new Telefono[numeros.length];
+      for(int j = 0; j < numeros.length; j++){
+        Telefono tel = new Telefono(Integer.parseInt(numeros[j]));
+        telefonos[j] = tel;
+      }
+      Provedor proveedor = new Provedor(nombre, RFC, direc, telefonos);
+      proveedores.add(proveedor);
+    }
+    return proveedores;
+  }
+
+
+  /**
+  * Método que genera una lista de productos
+  * @param datos Lista con los datos, a partir de ellos se generan los productos
+  * @return Regresa una lista con los productos
+  */
+  private ArrayList<Producto> listarProductos(ArrayList<String> datos){
+    ArrayList<Producto> productos = new ArrayList<>();
+    for (int i = 0; i < datos.size(); i++){
+      String[] parts = datos.get(i).split(",");
+      String nombre = parts[0];
+      float precio = Float.valueOf(parts[1]);
+      int stock = Integer.parseInt(parts[2]);
+      String descripcion = parts[3];
+      String imagen = parts[4];
+      float descuento = Float.valueOf(parts[5]);
+
+      Producto producto = new Producto(nombre, precio, stock, descripcion, imagen, descuento);
+      productos.add(producto);
+    }
+    return productos;
+  }
+
+
+  /**
+  * Método que genera una lista de categorías
+  * @param datos Lista con los datos, a partir de ellos se generan las categorias
+  * @return Regresa una lista con las categorías
+  */
+  private ArrayList<Categoria> listarCategorias(ArrayList<String> datos){
+    ArrayList<Categoria> categorias = new ArrayList<>();
+    for (int i = 0; i < datos.size(); i++){
+      String[] parts = datos.get(i).split(",");
+      String nombre = parts[0];
+      String descripcion = parts[1];
+      int stock = Integer.parseInt(parts[2]);
+
+      Categoria categoria = new Categoria(nombre, descripcion, stock);
+      categorias.add(categoria);
+    }
+    return categorias;
   }
 }
