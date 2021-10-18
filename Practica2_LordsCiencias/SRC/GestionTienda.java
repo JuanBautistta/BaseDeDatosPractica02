@@ -48,12 +48,16 @@ public class GestionTienda{
     ArrayList<Cliente> listaClientes = new ArrayList<>();
     ArrayList<Provedor> listaProveedores = new ArrayList<>();
     ArrayList<Producto> listaProductos = new ArrayList<>();
+<<<<<<< HEAD
     ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
     /*
     ArrayList<Cliente> listaClientes = new ArrayList<>();
     ArrayList<Provedor> listaProveedores = new ArrayList<>();
     ArrayList<Producto> listaProductos = new ArrayList<>();
     ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
+=======
+
+>>>>>>> 5f39065 (Se crean 4 listas a partir de los archivos csv.)
     LecturaYEscritura lectura = new LecturaYEscritura();
 
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
