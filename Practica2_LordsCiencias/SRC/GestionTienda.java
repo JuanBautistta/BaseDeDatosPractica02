@@ -17,8 +17,9 @@ public class GestionTienda{
   private ArrayList<Producto> listaProductos;
   private ArrayList<Categoria> listaCategorias;
 
+
   /**
-  * Constructor de la clase GestionTienda
+  * Método constructor de la clase GestionTienda
   */
   public GestionTienda(){
     archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
@@ -32,37 +33,18 @@ public class GestionTienda{
   }
 
 
-
-
   /**
     * Método que inicia la gestión de la tienda virtual.
     */
   public void gestionarTienda() throws FileNotFoundException, IOException, Exception{
     boolean bandera = true;
 	  Scanner input = new Scanner(System.in);
-
-    /*String archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
-    String archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
-    String archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
-    String archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
-    ArrayList<Cliente> listaClientes = new ArrayList<>();
-    ArrayList<Provedor> listaProveedores = new ArrayList<>();
-    ArrayList<Producto> listaProductos = new ArrayList<>();
-<<<<<<< HEAD
-    ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
-    /*
-    ArrayList<Cliente> listaClientes = new ArrayList<>();
-    ArrayList<Provedor> listaProveedores = new ArrayList<>();
-    ArrayList<Producto> listaProductos = new ArrayList<>();
-    ArrayList<Categoria> listaCategorias = new ArrayList<>();*/
-
     LecturaYEscritura lectura = new LecturaYEscritura();
 
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
-    //for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i));
     //Los println's
     for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
     for (int i = 0; i < listaProveedores.size(); i++) System.out.println(listaProveedores.get(i).toString());
@@ -273,12 +255,14 @@ public class GestionTienda{
     String calle = input.nextLine();
     System.out.print("Número: ");
     int numero = input.nextInt();
+    input.nextLine();
     System.out.print("Estado: ");
     String estado = input.nextLine();
     System.out.print("Municipio: ");
     String municipio = input.nextLine();
     System.out.print("Código postal: ");
     int cp = input.nextInt();
+    input.nextLine();
     System.out.print("Correo electrónico: ");
     String correo = input.nextLine();
     System.out.print("Password: ");
@@ -287,12 +271,14 @@ public class GestionTienda{
     String pago = input.nextLine();
     System.out.print("Puntos: ");
     int puntos = input.nextInt();
+    input.nextLine();
     Nombre nombre = new Nombre(nom, apellidoP, apellidoM);
     Direccion direccion = new Direccion(cp, municipio, estado, calle, numero);
     Cliente nuevo = new Cliente(nombre, nacimiento, genero, curp, direccion, correo, pass, pago, puntos);
     listaClientes.add(nuevo);
-    System.out.print("Se agregó el nuevo cliente.");
+    System.out.println("Se agregó exitosamente.\n");
   }
+
 
   /**
   * Método que manda un mensaje de error al usuario
