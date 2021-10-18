@@ -71,6 +71,14 @@ public class GestionTienda{
       case 0:
         bandera = false;
         System.out.println("Saliendo del sistema...\nHasta pronto.");
+        OperarArchivos escrituraClientes = new OperarArchivos(archClientes);
+        OperarArchivos escrituraProveedores = new OperarArchivos(archProveedores);
+        OperarArchivos escrituraProductos = new OperarArchivos(archProductos);
+        OperarArchivos escrituraCategorias = new OperarArchivos(archCategorias);
+        escrituraClientes.escribeOpeador(listaClientes);
+        escrituraProveedores.escribeOpeador(listaProveedores);
+        escrituraProductos.escribeOpeador(listaProductos);
+        escrituraCategorias.escribeOpeador(listaCategorias);
         break;
       case 1:
         gestionarClientes(menuGestion(input, "Clientes"));
@@ -163,9 +171,9 @@ public class GestionTienda{
       if (numeroDeProductos < 0) error();
       return new Categoria(nombre, descripcion, numeroDeProductos);
     } catch (Exception e) {
-      input.next();
       error();
     }
+    return null;
   }
 
   /**
@@ -186,14 +194,15 @@ public class GestionTienda{
         Categoria categoria = agregaCategoria();
         Scanner scn = new Scanner(System.in);
         int indice = listaCategorias.indexOf(categoria);
-        if (indice != 1) {
+        if (indice != -1) {
           System.out.println("indica que atributo deceas modificar:");
           System.out.println("Nombre - 1");
           System.out.println("descripcion - 2");
           System.out.println("Numero de productos - 3");
-          int elec = input.nextInt();
+          int elec = scn.nextInt();
           if(elec<1 || elec >3) error();
           System.out.println("Dame el nuevo valor");
+          scn.next();
           String nuevoValor = scn.nextLine();
           switch (elec) {
             case 1:
@@ -211,7 +220,7 @@ public class GestionTienda{
       case 4:
         Categoria categoria2 = agregaCategoria();
         int indice2 = listaCategorias.indexOf(categoria2);
-        if(indice2 != 1){
+        if(indice2 != -1){
           listaCategorias.remove(indice2);
         }else{
           System.out.println("EL elemento no existe");
