@@ -98,7 +98,7 @@ public class Nombre {
     }
     @Override
     public String toString() {
-        return "Nombre [apellidoM=" + apellidoM + ", apellidoP=" + apellidoP + ", nombrePersona=" + nombrePersona + "]";
+        return this.nombrePersona + "," + this.apellidoP + "," + this.apellidoM;
     }
 
 }

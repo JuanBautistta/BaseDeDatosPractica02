@@ -55,7 +55,10 @@ public class Telefono {
 
     @Override
     public String toString() {
-        return "Telefono [numeroDeTelefono=" + numeroDeTelefono + "]";
+        return Integer.toString(this.numeroDeTelefono);
+        /**
+         * return "Telefono [numeroDeTelefono=" + numeroDeTelefono + "]";
+         */
     }
 
 }

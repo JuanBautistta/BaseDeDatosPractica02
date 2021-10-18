@@ -95,10 +95,21 @@ public class Provedor {
         return true;
     }
 
+    private String toStringTelefonos() {
+        String str = "";
+        for (int i = 0; i < this.telefonos.length; i++) {
+            if (i > 0) {
+                str += "#" + Integer.toString(this.telefonos[i]);
+            } else {
+                str += Integer.toString(this.telefonos[i]);
+            }
+        }
+        return str;
+    }
+
     @Override
     public String toString() {
-        return "Provedor [direccion=" + direccion + ", nombre=" + nombre + ", registroFederalDeContributentes="
-                + registroFederalDeContributentes + ", telefonos=" + Arrays.toString(telefonos) + "]";
+        return this.direccion.toString() + "," + this.nombre + "," + this.registroFederalDeContributentes + "," + this.toStringTelefonos();
     }
 
 }

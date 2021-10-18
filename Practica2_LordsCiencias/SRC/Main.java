@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-	    ArrayList<Categoria> operadores = new ArrayList<>();
+	  ArrayList<Categoria> operadores = new ArrayList<>();
       operadores.add(new Categoria("canica", "son grandes", 100));
       operadores.add(new Categoria("canica2", "son grandes2", 100));
       operadores.add(new Categoria("canica3", "son grandes3", 100));
