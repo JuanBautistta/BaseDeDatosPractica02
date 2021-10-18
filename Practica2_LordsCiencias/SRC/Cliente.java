@@ -29,7 +29,7 @@ public class Cliente extends Persona {
      * @param puntos los puntos que va acumulando el cliente para obtener promociones exclusivas.
      */
     public Cliente(Nombre nombre, String fechaNacimiento, String genero, String curp, Direccion direccion,
-            String correoElectronico, String password, String metodoDePago, int puntos) {
+        String correoElectronico, String password, String metodoDePago, int puntos) {
         super(nombre, fechaNacimiento, genero, curp);
         this.direccion = direccion;
         this.correoElectronico = correoElectronico;
@@ -182,8 +182,8 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return "Cliente [correoElectronico=" + correoElectronico + ", direccion=" + direccion + ", metodoDePago="
-                + metodoDePago + ", password=" + password + ", puntos=" + puntos + "]";
+        return super.toString() +  "," +this.direccion.toString() + "," + this.correoElectronico + 
+            "," + this.password+ "," + this.metodoDePago + "," + Integer.toString(this.puntos);
     }
 
 }

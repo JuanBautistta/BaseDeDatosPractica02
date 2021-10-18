@@ -107,8 +107,7 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria [descripcion=" + descripcion + ", nombre=" + nombre + ", numeroDeProductos="
-                + numeroDeProductos + "]";
+        return this.nombre + "," + this.descripcion + "," + this.numeroDeProductos;
     }
 
 }

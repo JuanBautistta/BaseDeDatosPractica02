@@ -9,12 +9,15 @@ import java.util.Arrays;
  * @since 14-10-21
  */
 public class Provedor {
-    
+
     private String nombre;
     private String registroFederalDeContributentes;
     private Direccion direccion;
     private Telefono[] telefonos;
-    
+
+    /**
+    * Constructor de la clase proveedor
+    */  
     public Provedor(String nombre, String registroFederalDeContributentes, Direccion direccion, Telefono[] telefonos) {
         this.nombre = nombre;
         this.registroFederalDeContributentes = registroFederalDeContributentes;
@@ -95,10 +98,26 @@ public class Provedor {
         return true;
     }
 
+    /*private String toStringTelefonos() {
+        String str = "";
+        for (int i = 0; i < this.telefonos.length; i++) {
+            if (i > 0) {
+                str += "#" + Integer.toString(this.telefonos[i]);
+            } else {
+                str += Integer.toString(this.telefonos[i]);
+            }
+        }
+        return str;
+    }*/
+
     @Override
     public String toString() {
-        return "Provedor [direccion=" + direccion + ", nombre=" + nombre + ", registroFederalDeContributentes="
-                + registroFederalDeContributentes + ", telefonos=" + Arrays.toString(telefonos) + "]";
+        String tel = "";
+        for (Telefono telefono : telefonos) {
+            tel += telefono.toString() + "#";
+        } 
+        tel = tel.substring(0, tel.length()-1);
+        return nombre + "," + registroFederalDeContributentes + "," + direccion + "," + tel;
     }
 
 }

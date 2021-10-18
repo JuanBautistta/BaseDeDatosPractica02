@@ -155,8 +155,13 @@ public class Direccion {
 
     @Override
     public String toString() {
-        return "Direccion [calle=" + calle + ", codigoPostal=" + codigoPostal + ", estado=" + estado + ", municipio="
-                + municipio + ", numero=" + numero + "]";
+        /**
+         * return "Direccion [calle=" + calle + ", codigoPostal=" + codigoPostal + ", estado=" + estado + ", municipio="
+             + municipio + ", numero=" + numero + "]";
+         * 
+         */
+        return this.codigoPostal + "," + this.municipio + "," + this.estado + "," + this.calle + ","
+               + this.numero;
     }
     
 }
