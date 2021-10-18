@@ -24,7 +24,7 @@ public class GestionTienda{
     ArrayList<Categoria> listaCategorias = new ArrayList<>();
     LecturaYEscritura lectura = new LecturaYEscritura();
 
-    listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
+    //listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
@@ -213,6 +213,21 @@ public class GestionTienda{
   }
 
 
+  /**
+  * Método que agrega un cliente a la listaClientes
+  * @param input Objeto de la clase Scanner para solicitar datos del nuevo cliente
+  */
+  /*private void agregaCliente(Scanner input){
+    System.out.println("\n=============== Agregar Cliente ===============");
+    System.out.println("Nombre: ");
+    String nombre = input.next();
+    System.out.println("Nombre: ");
+    String nombre = input.next();
+
+    System.out.println("Fecha de nacimiento: ");
+    String nacimiento = input.next();
+  }
+*/
   /**
   * Método que manda un mensaje de error al usuario
   */
