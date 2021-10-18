@@ -19,6 +19,7 @@ public class Main {
       OperarArchivos archivo = new OperarArchivos("categoria.csv");
       GestionTienda gestor = new GestionTienda();
       gestor.gestionarTienda();
+      
 
             /*
             System.out.println("\t1-Agregar Operador\n" + "\t2-Ver Operadores\n"

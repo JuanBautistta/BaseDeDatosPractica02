@@ -1,10 +1,8 @@
 package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
-import java.IO.*;
-import java.io.IOException;
+import java.io.*;
 
 import BaseDeDatosPractica02.Practica2_LordsCiencias.SRC.Producto;
-import jdk.internal.perf.Perf.GetPerfAction;
 
 public class Consulta {
 
@@ -12,12 +10,12 @@ public class Consulta {
                                         "descripción: ", "imagen: ", "descuento: "};
 
     private Producto ConsultaProducto(String[] info) {
-        String nombre;
-        float precio;
-        int cantidadDeUnidades;
-        String descripcion;
-        String nombreArchivoImagen;
-        float descuento;
+        String nombre = "";
+        float precio = 0;
+        int cantidadDeUnidades = 0;
+        String descripcion = "";
+        String nombreArchivoImagen = "";
+        float descuento = 0;
         for (int i = 0; i < info.length; i++) {
             switch (i) {
                 case 0:
@@ -42,7 +40,6 @@ public class Consulta {
         }
         Producto producto = new Producto(nombre, precio, cantidadDeUnidades, descripcion, nombreArchivoImagen, descuento);
         return producto;
-
     }
 
 
@@ -62,18 +59,24 @@ public class Consulta {
     }
 
     private String[] recabaInformacion() {
-        String[] info;
+        String[] info = {};
         try {
+            int i = 0;
+            System.out.println(this.generaMensaje(i));
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
             String str = "";
-            int i = 0;
-            while ((str = br.readLine()) != null && !(str = str.trim()).equals("")) {
-                System.out.println(this.generaMensaje(i));
-                str += "#";
+            String s = str;
+            while ((str = br.readLine()) != null && !(str = str.trim()).equals("") && i < 6) {
+                s += str;
                 i += 1;
+                if (i >= 6) {
+                    break;
+                }
+                System.out.println(this.generaMensaje(i));
+                s += "#";
             }
-            info = str.split("#");
+            info = s.split("#");
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -82,6 +85,7 @@ public class Consulta {
 
     public Producto getProducto() {
         Producto producto = this.ConsultaProducto(this.recabaInformacion());
+        return producto;
     }
     
 }

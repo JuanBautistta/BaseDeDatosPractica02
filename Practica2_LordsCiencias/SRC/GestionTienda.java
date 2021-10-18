@@ -153,6 +153,9 @@ public class GestionTienda{
       case 1:
         this.listaProductos.add(producto);
         System.out.println("Producto agregado");
+        for (Producto p : this.listaProductos) {
+          System.out.println(p.toString());
+        }
         break;
       case 2:
         int i = this.listaProductos.indexOf(producto);
