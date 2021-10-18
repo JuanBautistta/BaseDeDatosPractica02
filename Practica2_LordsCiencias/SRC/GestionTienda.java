@@ -8,20 +8,21 @@ import java.io.FileNotFoundException;
 
 public class GestionTienda{
 
+  String archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
+  String archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
+  String archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
+  String archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
+  ArrayList<Cliente> listaClientes = new ArrayList<>();
+  ArrayList<Provedor> listaProveedores = new ArrayList<>();
+  ArrayList<Producto> listaProductos = new ArrayList<>();
+  ArrayList<Categoria> listaCategorias = new ArrayList<>();
+
   /**
     * Método que inicia la gestión de la tienda virtual.
     */
   public void gestionarTienda() throws FileNotFoundException, IOException, Exception{
     boolean bandera = true;
 	  Scanner input = new Scanner(System.in);
-    String archClientes = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Clientes.csv";
-    String archProveedores = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Proveedores.csv";
-    String archProductos = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Productos.csv";
-    String archCategorias = "BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Categorias.csv";
-    ArrayList<Cliente> listaClientes = new ArrayList<>();
-    ArrayList<Provedor> listaProveedores = new ArrayList<>();
-    ArrayList<Producto> listaProductos = new ArrayList<>();
-    ArrayList<Categoria> listaCategorias = new ArrayList<>();
     LecturaYEscritura lectura = new LecturaYEscritura();
 
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
@@ -146,18 +147,34 @@ public class GestionTienda{
   * @param eleccion Entero que es la operación que se quiere realizar
   */
   private void gestionarProductos(int eleccion){
+    Consulta consulta = new Consulta();
+    Producto producto = consulta.getProducto();
     switch (eleccion){
       case 1:
-        System.out.println("Se llama a la fución agregar");
+        this.listaProductos.add(producto);
+        System.out.println("Producto agregado");
         break;
       case 2:
-        System.out.println("Se llama a la función consultar");
+        int i = this.listaProductos.indexOf(producto);
+        if (i > 0) {
+          System.out.println("Producto:");
+          System.out.println(this.listaProductos.get(i).toString());
+        } else {
+          System.out.println("No se encontró el producto");
+        }
         break;
       case 3:
-        System.out.println("Se llama a la función editar");
+        int j = this.listaProductos.indexOf(producto);
+        if (j > 0) {
+          this.listaProductos.set(j, producto);
+          System.out.println("Producto actualizado");
+        } else {
+          System.out.println("No se encontró el producto");
+        }
         break;
       case 4:
-        System.out.println("Se llama a la función eliminar");
+        System.out.println("Producto Eliminado");
+        this.listaProductos.remove(producto);
         break;
       default:
         break;
