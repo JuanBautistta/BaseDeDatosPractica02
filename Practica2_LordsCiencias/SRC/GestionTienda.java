@@ -296,9 +296,6 @@ public class GestionTienda{
   }
 
 
-
-
-
   /**
   * Método que manda un mensaje de error al usuario
   */
