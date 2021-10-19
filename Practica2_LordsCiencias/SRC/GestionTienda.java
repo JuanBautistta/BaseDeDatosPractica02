@@ -208,9 +208,6 @@ public class GestionTienda{
         Producto producto = consulta.get();
         this.listaProductos.add(producto);
         System.out.println("Producto agregado");
-        for (Producto p : this.listaProductos) {
-          System.out.println(p.toString());
-        }
         break;
       case 2:
         System.out.println("\n\n\nListado de productos:\n");

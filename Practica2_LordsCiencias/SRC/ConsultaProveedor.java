@@ -61,9 +61,6 @@ public class ConsultaProveedor extends ConsultaGen {
      * @return el proveedor con el cual se va a trabajar.
      */ 
     private Provedor consulta(String[] info) {
-        for (String i : info) {
-            System.out.println(i);
-        }
         String nombre = "";
         String registroFederalDeContribuyentes = "";
         int codigoPostal = 0;
