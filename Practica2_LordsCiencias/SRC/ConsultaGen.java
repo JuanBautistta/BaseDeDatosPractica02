@@ -8,7 +8,7 @@ import java.io.*;
 public abstract class ConsultaGen {
 
     /**
-     * Generamos el mensaje para que el usuario introduzca la 
+     * Generamos el mensaje para que el usuario introduzca la
      * información que se va a agregar, consultar, editar o eliminar.
      * @param i el atributo que se va a pedir.
      */
@@ -36,12 +36,43 @@ public abstract class ConsultaGen {
                     break;
                 }
                 System.out.println(this.generaMensaje(i));
-                s += ",";
+                s += "&";
             }
-            info = s.split(",");
+            info = s.split("&");
+
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
         return info;
+    }
+
+    /**
+     * convierteInt. Convertimos a una cadena a un int, sí esto falla regresamos un 0.
+     * @param str el número que queremos convertir.
+     * @return el número convertido o 0.
+     */
+    public int convierteInt(String str) {
+        int i = 0;
+        try {
+            i = Integer.parseInt(str);
+        } catch (NumberFormatException nfe) {
+            System.out.println(nfe.getMessage());
+        }
+        return i;
+    }
+
+    /**
+     * convierteFloat. Convertimos a una cadena a un float, sí esto falla regresamos un 0.
+     * @param str el número que queremos convertir.
+     * @return el número convertido o 0.
+     */
+    public float convierteFloat(String str) {
+        float i = 0;
+        try {
+            i = Float.parseFloat(str);
+        } catch (NumberFormatException nfe) {
+            System.out.println(nfe.getMessage());
+        }
+        return i;
     }
 }

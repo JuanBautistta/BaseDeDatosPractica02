@@ -14,8 +14,7 @@ public class ConsultaProveedor extends ConsultaGen {
 
     // Atributos de un producto.
     private final String[] atributos = {"nombre: ", "Registro Federal de Contribuyentes: ",
-                                        "código postal: ", "municipio: ", "estado: ", "calle: ", "número: ",
-                                        "teléfonos: "};
+                                        "código postal: ", "municipio: ", "estado: ", "calle: ", "número: "};
 
     /**
      * Generamos el mensaje para que el usuario introduzca la 
@@ -47,11 +46,84 @@ public class ConsultaProveedor extends ConsultaGen {
             case 6:
                 msg += "el " + atributos[i];
                 break;
-            case 7:
-                msg += "los " + atributos[i];
+            default:
+                msg += "el número de teléfono: ";
                 break;
         }
         return msg;
+    }
+
+    /**
+     * pregunta. Preguntamos al usuario sí es necesario agregar más de dos números telefónicos.
+     * @param j el atributo que se va a pedir.
+     * @return los números telefónicos introducidos por el usuario.
+     */
+    private String[] pregunta(int j) {
+        String[] input = {};
+        try {
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            String str = "";
+            String s = str;
+            System.out.println("¿Desea agregar otro teléfono? S/N");
+            while ((str = br.readLine()) != null && !(str = str.trim()).equals("N")) {
+                System.out.println("Cuando desee dejar de agregar teléfonos introduzca N");
+                s += str;
+                System.out.println(this.generaMensaje(j));
+                s += "&";
+            }
+            input = s.split("&");
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+        String[] telefonos = new String[input.length - 1];
+        for (int i = 1; i < input.length; i++) {
+            telefonos[i-1] = input[i];
+        }
+        return telefonos;
+    }
+
+    /**
+     * Recolectamos la información que va a ser utilizada para contruir el
+     * objeto el cual se va a agregar, consultar, editar o eliminar.
+     * @param lenght el número de atributos que se van a pedir.
+     * @return la información con la que se construirá el objeto.
+     */
+    @Override
+    public String[] recabaInformacion(int lenght) {
+        String[] info = {};
+        String[] telefonos = {};
+        try {
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            String str = "";
+            String s = str;
+            int i = 0;
+            System.out.println(this.generaMensaje(i));
+            while ((str = br.readLine()) != null && !(str = str.trim()).equals("")) {
+                s += str;
+                i += 1;
+                if (i >= lenght) {
+                    telefonos = pregunta(i);
+                    break; 
+                }
+                System.out.println(this.generaMensaje(i));
+                s += "&";
+            }
+            info = s.split("&");
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+        int l = info.length;
+        String[] newInfo = new String[l + telefonos.length];
+        for (int i = 0; i < newInfo.length; i++) {
+            if (i < l) {
+                newInfo[i] = info[i];
+            } else {
+                newInfo[i] = telefonos[i-l];
+            }
+        }
+        return newInfo;
     }
 
      /**
@@ -78,7 +150,7 @@ public class ConsultaProveedor extends ConsultaGen {
                     registroFederalDeContribuyentes = info[i];
                     break;
                 case 2:
-                    codigoPostal = Integer.parseInt(info[i]);
+                    codigoPostal = this.convierteInt(info[i]);
                     break;
                 case 3:
                     municipio = info[i];
@@ -90,13 +162,12 @@ public class ConsultaProveedor extends ConsultaGen {
                     calle = info[i];
                     break;
                 case 6:
-                    numero = Integer.parseInt(info[i]);
+                    numero = this.convierteInt(info[i]);
                     break;
                 case 7:
-                    String[] arr = info[i].split("#");
-                    int[] auxiliar = new int[arr.length];
-                    for (int j = 0; j < arr.length; j++) {
-                        auxiliar[j] = Integer.parseInt(arr[j]);
+                    int[] auxiliar = new int[info.length - i];
+                    for (int j = 0; j < auxiliar.length; j++) {
+                        auxiliar[j] = this.convierteInt(info[i+j]);
                     }
                     tel = auxiliar;
                     break;
@@ -117,7 +188,7 @@ public class ConsultaProveedor extends ConsultaGen {
      * @return producto
      */
     public Provedor get() {
-        return this.consulta(this.recabaInformacion(atributos.length));
+        return this.consulta(this.recabaInformacion(atributos.length + 2));
     }
     
 }

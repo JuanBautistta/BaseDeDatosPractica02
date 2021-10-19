@@ -161,6 +161,7 @@ public class GestionTienda{
     switch (eleccion){
       case 1:
         listaCategorias.add(agregaCategoria());
+        System.out.println("\nSe agregó exitosamente.\n");
         break;
       case 2:
         System.out.println("\n\n\nListado de categorías:\n");
