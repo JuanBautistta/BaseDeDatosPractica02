@@ -7,7 +7,7 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
  * @since 14-10-21
  */
 public class Producto {
-    
+
     private String nombre;
     private float precio;
     private int cantidadDeUnidades;
@@ -178,12 +178,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return nombre + "," + precio + "," + cantidadDeUnidades +
-<<<<<<< HEAD
-            "," + descripcion + "," + nombreArchivoImagen + "," +descuento;
-=======
-            "," + descripcion + "," + nombreArchivoImagen + "," + descuento;
->>>>>>> Fausto
+        return nombre + "," + precio + "," + cantidadDeUnidades + "," + descripcion + "," + nombreArchivoImagen + "," + descuento;
     }
 
 }

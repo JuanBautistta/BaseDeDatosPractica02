@@ -221,7 +221,7 @@ public class GestionTienda{
   * @param eleccion Entero que es la operación que se quiere realizar
   */
   private void gestionarProductos(int eleccion){
-    Consulta consulta = new Consulta();
+    ConsultaProducto consulta = new ConsultaProducto();
     Producto producto = consulta.getProducto();
     switch (eleccion){
       case 1:
