@@ -45,11 +45,6 @@ public class GestionTienda{
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
-    //Los println's
-    for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
-    for (int i = 0; i < listaProveedores.size(); i++) System.out.println(listaProveedores.get(i).toString());
-    for (int i = 0; i < listaProductos.size(); i++) System.out.println(listaProductos.get(i).toString());
-    for (int i = 0; i < listaCategorias.size(); i++) System.out.println(listaCategorias.get(i).toString());
     do{
       switch (menuPrincipal(input)){
       case 0:
@@ -179,26 +174,12 @@ public class GestionTienda{
         Scanner scn = new Scanner(System.in);
         int indice = listaCategorias.indexOf(categoria);
         if (indice != -1) {
-          System.out.println("indica que atributo deceas modificar:");
-          System.out.println("Nombre - 1");
-          System.out.println("descripcion - 2");
-          System.out.println("Numero de productos - 3");
-          int elec = scn.nextInt();
-          if(elec<1 || elec >3) error();
-          System.out.println("Dame el nuevo valor");
-          scn.next();
-          String nuevoValor = scn.nextLine();
-          switch (elec) {
-            case 1:
-              listaCategorias.get(indice).setNombre(nuevoValor);
-              break;
-            case 2:
-              listaCategorias.get(indice).setDescripcion(nuevoValor);
-              break;
-            case 3:
-              listaCategorias.get(indice).setNumeroDeProductos(Integer.parseInt(nuevoValor));
-              break;
-          }
+          System.out.println("Dame la infomación a modificar");
+          Categoria nuevo = agregaCategoria();
+          listaCategorias.set(indice, nuevo);
+          System.out.println("Modificaciones realizada");
+        }else{
+          System.out.println("Producto no encontrado");
         }
         break;
       case 4:
@@ -222,9 +203,9 @@ public class GestionTienda{
   */
   private void gestionarProductos(int eleccion){
     ConsultaProducto consulta = new ConsultaProducto();
-    Producto producto = consulta.get();
     switch (eleccion){
       case 1:
+        Producto producto = consulta.get();
         this.listaProductos.add(producto);
         System.out.println("Producto agregado");
         for (Producto p : this.listaProductos) {
@@ -232,24 +213,24 @@ public class GestionTienda{
         }
         break;
       case 2:
-        int i = this.listaProductos.indexOf(producto);
-        if (i > 0) {
-          System.out.println("Producto:");
-          System.out.println(this.listaProductos.get(i).toString());
-        } else {
-          System.out.println("No se encontró el producto");
+        for (Producto produc : listaProductos) {
+          System.out.println(produc.toString());
         }
         break;
       case 3:
+        producto = consulta.get();
         int j = this.listaProductos.indexOf(producto);
         if (j > 0) {
-          this.listaProductos.set(j, producto);
+          System.out.println("Modifique los datos");
+          Producto nuevo = consulta.get();
+          this.listaProductos.set(j, nuevo);
           System.out.println("Producto actualizado");
         } else {
           System.out.println("No se encontró el producto");
         }
         break;
       case 4:
+        producto = consulta.get();
         System.out.println("Producto Eliminado");
         this.listaProductos.remove(producto);
         break;
@@ -265,30 +246,31 @@ public class GestionTienda{
   */
   private void gestionarProvedores(int eleccion){
     ConsultaProveedor consulta = new ConsultaProveedor();
-    Provedor p = consulta.get();
     switch (eleccion) {
       case 1:
+        Provedor p = consulta.get();
         this.listaProveedores.add(p);
         System.out.println("Proveedor agregado");
         break;
       case 2:
-        int index = this.listaProveedores.indexOf(p);
-        if (index > 0) {
-          System.out.println(this.listaProveedores.get(index).toString());
-        } else {
-          System.out.println("El proveedor no está registrado");
+        for (Provedor prov : listaProveedores) {
+          System.out.println(prov.toString());
         }
         break;
       case 3:
+        p = consulta.get();
         int j = this.listaProveedores.indexOf(p);
         if (j > 0) {
-          this.listaProveedores.set(j, p);
+          System.out.println("Modifica datos");
+          Provedor nuevo = consulta.get();
+          this.listaProveedores.set(j, nuevo);
           System.out.println("Datos del proveedor actualizados");
         } else {
           System.out.println("No se encontró al proveedor");
         }
         break;
       case 4:
+        p = consulta.get();
         this.listaProveedores.remove(p);
         System.out.println("Proveedor Eliminado");
         break;
@@ -306,7 +288,6 @@ public class GestionTienda{
     switch (eleccion){
       case 1:
         agregaCliente();
-        //for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
         break;
       case 2:
         for (Cliente cliente : listaClientes){
@@ -315,72 +296,22 @@ public class GestionTienda{
         break;
       case 3:
         Cliente cliente = generaCliente();
-        int elec = seleccionaClientes();
-        Scanner scan = new Scanner(System.in);
         int indi = listaClientes.indexOf(cliente);
         if(indi == -1){
           System.out.println("Cliente no encontrado");
           break;
         }
-        System.out.println("Dame el nuevo dato");
-        String dato = scan.nextLine();
-        Cliente modificar = listaClientes.get(indi);
-        switch (elec) {
-          case 1:
-            modificar.getNombre().setNombrePersona(dato);
-            break;
-          case 2:
-            modificar.getNombre().setApellidoP(dato);
-            break;
-          case 3:
-            modificar.getNombre().setApellidoM(dato);
-            break;
-          case 4:
-            modificar.setGenero(dato);
-            break;
-          case 5:
-            modificar.setGenero(dato);
-            break;
-          case 6:
-            System.out.println("NO se puede modificar el CURP");
-            break;
-          case 7:
-            modificar.getDireccion().setCalle(dato);
-            break;
-          case 8:
-            modificar.getDireccion().setNumero(Integer.parseInt(dato));
-            break;
-          case 9:
-            modificar.getDireccion().setEstado(dato);
-            break;
-          case 10:
-            modificar.getDireccion().setMunicipio(dato);
-            break;
-          case 11:
-            modificar.getDireccion().setCodigoPostal(Integer.parseInt(dato));
-            break;
-          case 12:
-            modificar.setCorreoElectronico(dato);
-            break;
-          case 13:
-            modificar.setPassword(dato);
-            break;
-          case 14:
-            modificar.setMetodoDePago(dato);
-            break;
-          case 15:
-            modificar.setPuntos(Integer.parseInt(dato));
-            break;
-          default:
-            break;
-        }
+        System.out.println("Modifica datos:");
+        Cliente nuevo = generaCliente();
+        listaClientes.set(indi, nuevo);
+        System.out.println("Datos del cliente actualizado");
         break;
       case 4:
         System.out.println("Se llama a la función eliminar");
         cliente = generaCliente();
         int indice = listaClientes.indexOf(cliente);
         if(indice != -1){
-          listaCategorias.remove(indice);
+          listaClientes.remove(indice);
         }else{
           System.out.println("EL elemento no existe");
         }
@@ -388,30 +319,6 @@ public class GestionTienda{
       default:
         break;
     }
-  }
-
-  private int seleccionaClientes(){
-    System.out.println("indica que atributo deceas modificar:");
-    System.out.println("1 - Nombre");
-    System.out.println("2 - Apellido Paterno");
-    System.out.println("3 - Apellido Materno");
-    System.out.println("4 - Fecha de Nacimiento");
-    System.out.println("5 - Genero");
-    System.out.println("6 - CURP");
-    System.out.println("7 - Calle");;
-    System.out.println("8 - NUemero");
-    System.out.println("9 - Estado");
-    System.out.println("10 - Municipio");
-    System.out.println("11 - codigo postal");
-    System.out.println("12 - correo");
-    System.out.println("13 - password");
-    System.out.println("14 - forma de pago");
-    System.out.println("15 - puntos");
-    Scanner scn = new Scanner(System.in);
-    int opcion = scn.nextInt();
-    scn.close();
-    if(opcion<0 || opcion >15) error();
-    return opcion;
   }
 
   /**

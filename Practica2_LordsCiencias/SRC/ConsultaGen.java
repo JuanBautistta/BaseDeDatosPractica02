@@ -36,9 +36,9 @@ public abstract class ConsultaGen {
                     break;
                 }
                 System.out.println(this.generaMensaje(i));
-                s += "$";
+                s += ",";
             }
-            info = s.split("$");
+            info = s.split(",");
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
