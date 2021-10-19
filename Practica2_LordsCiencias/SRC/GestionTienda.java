@@ -40,11 +40,14 @@ public class GestionTienda{
     boolean bandera = true;
 	  Scanner input = new Scanner(System.in);
     LecturaYEscritura lectura = new LecturaYEscritura();
-
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89ad292c103d7a24fe54cdb40d7fa1d305db696b
     do{
       switch (menuPrincipal(input)){
       case 0:
