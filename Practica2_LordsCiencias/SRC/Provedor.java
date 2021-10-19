@@ -98,24 +98,12 @@ public class Provedor {
         return true;
     }
 
-    /*private String toStringTelefonos() {
-        String str = "";
-        for (int i = 0; i < this.telefonos.length; i++) {
-            if (i > 0) {
-                str += "#" + Integer.toString(this.telefonos[i]);
-            } else {
-                str += Integer.toString(this.telefonos[i]);
-            }
-        }
-        return str;
-    }*/
-
     @Override
     public String toString() {
         String tel = "";
         for (Telefono telefono : telefonos) {
             tel += telefono.toString() + "#";
-        } 
+        }
         tel = tel.substring(0, tel.length()-1);
         return nombre + "," + registroFederalDeContributentes + "," + direccion + "," + tel;
     }

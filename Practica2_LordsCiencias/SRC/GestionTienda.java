@@ -190,18 +190,33 @@ public class GestionTienda{
   * @param eleccion Entero que es la operación que se quiere realizar
   */
   private void gestionarProvedores(int eleccion){
-    switch (eleccion){
+    ConsultaProveedor consulta = new ConsultaProveedor();
+    Provedor p = consulta.get();
+    switch (eleccion) {
       case 1:
-        System.out.println("Se llama a la fución agregar");
+        this.listaProveedores.add(p);
+        System.out.println("Proveedor agregado");
         break;
       case 2:
-        System.out.println("Se llama a la función consultar");
+        int index = this.listaProveedores.indexOf(p);
+        if (index > 0) {
+          System.out.println(this.listaProveedores.get(index).toString());
+        } else {
+          System.out.println("El proveedor no está registrado");
+        }
         break;
       case 3:
-        System.out.println("Se llama a la función editar");
+        int j = this.listaProveedores.indexOf(p);
+        if (j > 0) {
+          this.listaProveedores.set(j, p);
+          System.out.println("Datos del proveedor actualizados");
+        } else {
+          System.out.println("No se encontró al proveedor");
+        }
         break;
       case 4:
-        System.out.println("Se llama a la función eliminar");
+        this.listaProveedores.remove(p);
+        System.out.println("Proveedor Eliminado");
         break;
       default:
         break;
