@@ -179,7 +179,11 @@ public class Producto {
     @Override
     public String toString() {
         return nombre + "," + precio + "," + cantidadDeUnidades +
+<<<<<<< HEAD
             "," + descripcion + "," + nombreArchivoImagen + "," +descuento;
+=======
+            "," + descripcion + "," + nombreArchivoImagen + "," + descuento;
+>>>>>>> Fausto
     }
 
 }
