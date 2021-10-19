@@ -40,16 +40,11 @@ public class GestionTienda{
     boolean bandera = true;
 	  Scanner input = new Scanner(System.in);
     LecturaYEscritura lectura = new LecturaYEscritura();
-
     listaClientes = listarClientes(lectura.leeArchivo1(archClientes));
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
-    //Los println's
-    for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
-    for (int i = 0; i < listaProveedores.size(); i++) System.out.println(listaProveedores.get(i).toString());
-    for (int i = 0; i < listaProductos.size(); i++) System.out.println(listaProductos.get(i).toString());
-    for (int i = 0; i < listaCategorias.size(); i++) System.out.println(listaCategorias.get(i).toString());
+
     do{
       switch (menuPrincipal(input)){
       case 0:
@@ -306,7 +301,6 @@ public class GestionTienda{
     switch (eleccion){
       case 1:
         agregaCliente();
-        //for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
         break;
       case 2:
         for (Cliente cliente : listaClientes){
