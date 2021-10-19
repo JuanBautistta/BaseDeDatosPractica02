@@ -287,7 +287,6 @@ public class GestionTienda{
   private void gestionarClientes(int eleccion){
     switch (eleccion){
       case 1:
-        //agregaCliente();
         listaClientes.add(generaCliente("Agregar Cliente"));
         System.out.println("\nSe agregó exitosamente.\n");
         break;
