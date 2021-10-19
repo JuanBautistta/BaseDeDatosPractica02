@@ -44,10 +44,7 @@ public class GestionTienda{
     listaProveedores = listarProveedores(lectura.leeArchivo1(archProveedores));
     listaProductos = listarProductos(lectura.leeArchivo1(archProductos));
     listaCategorias = listarCategorias(lectura.leeArchivo1(archCategorias));
-<<<<<<< HEAD
-=======
 
->>>>>>> 89ad292c103d7a24fe54cdb40d7fa1d305db696b
     do{
       switch (menuPrincipal(input)){
       case 0:
