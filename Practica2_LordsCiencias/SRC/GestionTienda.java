@@ -85,12 +85,12 @@ public class GestionTienda{
     int opcion = 0;
     boolean bandera = true;
     do{
-        System.out.println("\n================= Gestión de Tienda Virtual =================");
-        System.out.println("- Clientes\t(1)");
-        System.out.println("- Proveedores\t(2)");
-        System.out.println("- Productos\t(3)");
-        System.out.println("- Categorías\t(4)");
-        System.out.println("- Salir \t(0)");
+        System.out.println("\n\n============== Gestión de Tienda Virtual =============");
+        System.out.println("- Clientes\t\t\t\t\t(1)");
+        System.out.println("- Proveedores\t\t\t\t\t(2)");
+        System.out.println("- Productos\t\t\t\t\t(3)");
+        System.out.println("- Categorías\t\t\t\t\t(4)");
+        System.out.println("- Salir \t\t\t\t\t(0)");
         System.out.print("\nSeleccione una opción: ");
         try {
             opcion = input.nextInt();
@@ -116,12 +116,12 @@ public class GestionTienda{
     int opcion = 0;
     boolean bandera = true;
     do{
-        System.out.println("\n================= " + eleccion + " =================");
-        System.out.println("- Agregar\t\t(1)");
-        System.out.println("- Consultar\t\t(2)");
-        System.out.println("- Editar\t\t(3)");
-        System.out.println("- Eliminar informacion\t(4)");
-        System.out.println("- Menu principal\t(0)");
+        System.out.println("\n================= " + eleccion + " ================");
+        System.out.println("- Agregar\t\t\t\t(1)");
+        System.out.println("- Consultar\t\t\t\t(2)");
+        System.out.println("- Editar\t\t\t\t(3)");
+        System.out.println("- Eliminar informacion\t\t\t(4)");
+        System.out.println("- Menu principal\t\t\t(0)");
         System.out.print("\nSeleccione una opción: ");
         try {
             opcion = input.nextInt();
@@ -145,9 +145,7 @@ public class GestionTienda{
       nombre = categoria.nextLine();
       System.out.println("Dame una descripcion sobre dicha categoria");
       descripcion = categoria.nextLine();
-      System.out.println("Dame el numero de productos de esa categoria");
-      numeroDeProductos = categoria.nextInt();
-      if (numeroDeProductos < 0) error();
+      numeroDeProductos = dameEntero("Dame el número de productos de esa categoria: ");
       return new Categoria(nombre, descripcion, numeroDeProductos);
     } catch (Exception e) {
       error();
@@ -165,6 +163,7 @@ public class GestionTienda{
         listaCategorias.add(agregaCategoria());
         break;
       case 2:
+        System.out.println("\n\n\nListado de categorías:\n");
         for (Categoria categoria : listaCategorias) {
           System.out.println(categoria.toString());
         }
@@ -174,12 +173,12 @@ public class GestionTienda{
         Scanner scn = new Scanner(System.in);
         int indice = listaCategorias.indexOf(categoria);
         if (indice != -1) {
-          System.out.println("Dame la infomación a modificar");
+          System.out.println("\nDame la infomación a modificar");
           Categoria nuevo = agregaCategoria();
           listaCategorias.set(indice, nuevo);
-          System.out.println("Modificaciones realizada");
+          System.out.println("\nModificaciones realizadas");
         }else{
-          System.out.println("Producto no encontrado");
+          System.out.println("\nCategoría no encontrada");
         }
         break;
       case 4:
@@ -187,8 +186,9 @@ public class GestionTienda{
         int indice2 = listaCategorias.indexOf(categoria2);
         if(indice2 != -1){
           listaCategorias.remove(indice2);
+          System.out.println("\nLa categoría se eliminó exitosamente\n");
         }else{
-          System.out.println("EL elemento no existe");
+          System.out.println("El elemento no existe");
         }
         break;
       default:
@@ -213,6 +213,7 @@ public class GestionTienda{
         }
         break;
       case 2:
+        System.out.println("\n\n\nListado de productos:\n");
         for (Producto produc : listaProductos) {
           System.out.println(produc.toString());
         }
@@ -253,6 +254,7 @@ public class GestionTienda{
         System.out.println("Proveedor agregado");
         break;
       case 2:
+        System.out.println("\n\n\nListado de proveedores:\n");
         for (Provedor prov : listaProveedores) {
           System.out.println(prov.toString());
         }
@@ -287,33 +289,37 @@ public class GestionTienda{
   private void gestionarClientes(int eleccion){
     switch (eleccion){
       case 1:
-        agregaCliente();
+        //agregaCliente();
+        listaClientes.add(generaCliente("Agregar Cliente"));
+        System.out.println("\nSe agregó exitosamente.\n");
         break;
       case 2:
+        System.out.println("\n\n\nListado de clientes:\n");
         for (Cliente cliente : listaClientes){
           System.out.println(cliente.toString());
         }
         break;
       case 3:
-        Cliente cliente = generaCliente();
+        Cliente cliente = generaCliente("Editar Cliente");
         int indi = listaClientes.indexOf(cliente);
         if(indi == -1){
           System.out.println("Cliente no encontrado");
           break;
         }
-        System.out.println("Modifica datos:");
-        Cliente nuevo = generaCliente();
+        System.out.println("\nModificación de datos:");
+        Cliente nuevo = generaCliente("Editar Cliente");
         listaClientes.set(indi, nuevo);
-        System.out.println("Datos del cliente actualizado");
+        System.out.println("\nDatos del cliente actualizados\n");
         break;
       case 4:
         System.out.println("Se llama a la función eliminar");
-        cliente = generaCliente();
+        cliente = generaCliente("Eliminar Cliente");
         int indice = listaClientes.indexOf(cliente);
         if(indice != -1){
           listaClientes.remove(indice);
+          System.out.println("\nEl cliente se eliminó exitosamente\n");
         }else{
-          System.out.println("EL elemento no existe");
+          System.out.println("\nEl elemento no existe\n");
         }
         break;
       default:
@@ -321,51 +327,12 @@ public class GestionTienda{
     }
   }
 
-  /**
-  * Método que agrega un cliente a la listaClientes
-  */
-  private void agregaCliente(){
-    System.out.println("\n=============== Agregar Cliente ===============");
-    Scanner input = new Scanner(System.in);
-    System.out.print("Nombre: ");
-    String nom = input.nextLine();
-    System.out.print("Apellido paterno: ");
-    String apellidoP = input.nextLine();
-    System.out.print("Apellido materno: ");
-    String apellidoM = input.nextLine();
-    System.out.print("Fecha de nacimiento: ");
-    String nacimiento = input.nextLine();
-    System.out.print("Genero: ");
-    String genero = input.nextLine();
-    System.out.print("CURP: ");
-    String curp = input.nextLine();
-    System.out.print("Calle: ");
-    String calle = input.nextLine();
-    int numero = dameEntero("Numero: ");
-    System.out.print("Estado: ");
-    String estado = input.nextLine();
-    System.out.print("Municipio: ");
-    String municipio = input.nextLine();
-    int cp = dameEntero("Código postal: ");
-    System.out.print("Correo electrónico: ");
-    String correo = input.nextLine();
-    System.out.print("Password: ");
-    String pass = input.nextLine();
-    System.out.print("Forma de pago: ");
-    String pago = input.nextLine();
-    int puntos = dameEntero("Puntos: ");
-    Nombre nombre = new Nombre(nom, apellidoP, apellidoM);
-    Direccion direccion = new Direccion(cp, municipio, estado, calle, numero);
-    Cliente nuevo = new Cliente(nombre, nacimiento, genero, curp, direccion, correo, pass, pago, puntos);
-    listaClientes.add(nuevo);
-    System.out.println("Se agregó exitosamente.\n");
-  }
 
   /**
   * Método que agrega un cliente a la listaClientes
   */
-  private Cliente generaCliente(){
-    System.out.println("\n=============== Agregar Cliente ===============");
+  private Cliente generaCliente(String operacion){
+    System.out.println("\n=============== "+ operacion + " ===============");
     Scanner input = new Scanner(System.in);
     System.out.print("Nombre: ");
     String nom = input.nextLine();
@@ -423,9 +390,6 @@ public class GestionTienda{
     } while (bandera);
     return numero;
   }
-
-
-
 
 
   /**
