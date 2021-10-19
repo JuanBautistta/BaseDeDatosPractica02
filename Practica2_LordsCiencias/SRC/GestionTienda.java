@@ -272,22 +272,113 @@ public class GestionTienda{
     switch (eleccion){
       case 1:
         agregaCliente();
-        for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
+        //for (int i = 0; i < listaClientes.size(); i++) System.out.println(listaClientes.get(i).toString());
         break;
       case 2:
-        System.out.println("Se llama a la función consultar");
+        for (Cliente cliente : listaClientes){
+          System.out.println(cliente.toString());
+        }
         break;
       case 3:
-        System.out.println("Se llama a la función editar");
+        Cliente cliente = generaCliente();
+        int elec = seleccionaClientes();
+        Scanner scan = new Scanner(System.in);
+        int indi = listaClientes.indexOf(cliente);
+        if(indi == -1){
+          System.out.println("Cliente no encontrado");
+          break;
+        }
+        System.out.println("Dame el nuevo dato");
+        String dato = scan.nextLine();
+        Cliente modificar = listaClientes.get(indi);
+        switch (elec) {
+          case 1:
+            modificar.getNombre().setNombrePersona(dato);
+            break;
+          case 2:
+            modificar.getNombre().setApellidoP(dato);
+            break;
+          case 3:
+            modificar.getNombre().setApellidoM(dato);
+            break;
+          case 4:
+            modificar.setGenero(dato);
+            break;
+          case 5:
+            modificar.setGenero(dato);
+            break;
+          case 6:
+            System.out.println("NO se puede modificar el CURP");
+            break;
+          case 7:
+            modificar.getDireccion().setCalle(dato);
+            break;
+          case 8:
+            modificar.getDireccion().setNumero(Integer.parseInt(dato));
+            break;
+          case 9:
+            modificar.getDireccion().setEstado(dato);
+            break;
+          case 10:
+            modificar.getDireccion().setMunicipio(dato);
+            break;
+          case 11:
+            modificar.getDireccion().setCodigoPostal(Integer.parseInt(dato));
+            break;
+          case 12:
+            modificar.setCorreoElectronico(dato);
+            break;
+          case 13:
+            modificar.setPassword(dato);
+            break;
+          case 14:
+            modificar.setMetodoDePago(dato);
+            break;
+          case 15:
+            modificar.setPuntos(Integer.parseInt(dato));
+            break;
+          default:
+            break;
+        }
         break;
       case 4:
         System.out.println("Se llama a la función eliminar");
+        cliente = generaCliente();
+        int indice = listaClientes.indexOf(cliente);
+        if(indice != -1){
+          listaCategorias.remove(indice);
+        }else{
+          System.out.println("EL elemento no existe");
+        }
         break;
       default:
         break;
     }
   }
 
+  private int seleccionaClientes(){
+    System.out.println("indica que atributo deceas modificar:");
+    System.out.println("1 - Nombre");
+    System.out.println("2 - Apellido Paterno");
+    System.out.println("3 - Apellido Materno");
+    System.out.println("4 - Fecha de Nacimiento");
+    System.out.println("5 - Genero");
+    System.out.println("6 - CURP");
+    System.out.println("7 - Calle");;
+    System.out.println("8 - NUemero");
+    System.out.println("9 - Estado");
+    System.out.println("10 - Municipio");
+    System.out.println("11 - codigo postal");
+    System.out.println("12 - correo");
+    System.out.println("13 - password");
+    System.out.println("14 - forma de pago");
+    System.out.println("15 - puntos");
+    Scanner scn = new Scanner(System.in);
+    int opcion = scn.nextInt();
+    scn.close();
+    if(opcion<0 || opcion >15) error();
+    return opcion;
+  }
 
   /**
   * Método que agrega un cliente a la listaClientes
@@ -329,6 +420,43 @@ public class GestionTienda{
     System.out.println("Se agregó exitosamente.\n");
   }
 
+  /**
+  * Método que agrega un cliente a la listaClientes
+  */
+  private Cliente generaCliente(){
+    System.out.println("\n=============== Agregar Cliente ===============");
+    Scanner input = new Scanner(System.in);
+    System.out.print("Nombre: ");
+    String nom = input.nextLine();
+    System.out.print("Apellido paterno: ");
+    String apellidoP = input.nextLine();
+    System.out.print("Apellido materno: ");
+    String apellidoM = input.nextLine();
+    System.out.print("Fecha de nacimiento: ");
+    String nacimiento = input.nextLine();
+    System.out.print("Genero: ");
+    String genero = input.nextLine();
+    System.out.print("CURP: ");
+    String curp = input.nextLine();
+    System.out.print("Calle: ");
+    String calle = input.nextLine();
+    int numero = dameEntero("Numero: ");
+    System.out.print("Estado: ");
+    String estado = input.nextLine();
+    System.out.print("Municipio: ");
+    String municipio = input.nextLine();
+    int cp = dameEntero("Código postal: ");
+    System.out.print("Correo electrónico: ");
+    String correo = input.nextLine();
+    System.out.print("Password: ");
+    String pass = input.nextLine();
+    System.out.print("Forma de pago: ");
+    String pago = input.nextLine();
+    int puntos = dameEntero("Puntos: ");
+    Nombre nombre = new Nombre(nom, apellidoP, apellidoM);
+    Direccion direccion = new Direccion(cp, municipio, estado, calle, numero);
+    return new Cliente(nombre, nacimiento, genero, curp, direccion, correo, pass, pago, puntos);
+  }
 
   /**
   * Método que verifica que le pasen un entero mayor o igual a cero
