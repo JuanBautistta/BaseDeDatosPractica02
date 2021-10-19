@@ -222,7 +222,7 @@ public class GestionTienda{
   */
   private void gestionarProductos(int eleccion){
     ConsultaProducto consulta = new ConsultaProducto();
-    Producto producto = consulta.getProducto();
+    Producto producto = consulta.get();
     switch (eleccion){
       case 1:
         this.listaProductos.add(producto);
