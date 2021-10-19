@@ -153,7 +153,7 @@ public class ConsultaProveedor extends ConsultaGen {
                     registroFederalDeContribuyentes = info[i];
                     break;
                 case 2:
-                    codigoPostal = Integer.parseInt(info[i]);
+                    codigoPostal = this.convierteInt(info[i]);
                     break;
                 case 3:
                     municipio = info[i];
@@ -165,12 +165,12 @@ public class ConsultaProveedor extends ConsultaGen {
                     calle = info[i];
                     break;
                 case 6:
-                    numero = Integer.parseInt(info[i]);
+                    numero = this.convierteInt(info[i]);
                     break;
                 case 7:
                     int[] auxiliar = new int[info.length - i];
                     for (int j = 0; j < auxiliar.length; j++) {
-                        auxiliar[j] = Integer.parseInt(info[i+j]);
+                        auxiliar[j] = this.convierteInt(info[i+j]);
                     }
                     tel = auxiliar;
                     break;

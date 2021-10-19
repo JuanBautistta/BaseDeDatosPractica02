@@ -44,4 +44,34 @@ public abstract class ConsultaGen {
         }
         return info;
     }
+
+    /**
+     * convierteInt. Convertimos a una cadena a un int, sí esto falla regresamos un 0.
+     * @param str el número que queremos convertir.
+     * @return el número convertido o 0.
+     */
+    public int convierteInt(String str) {
+        int i = 0;
+        try {
+            i = Integer.parseInt(str);
+        } catch (NumberFormatException nfe) {
+            System.out.println(nfe.getMessage());
+        }
+        return i;
+    }
+
+    /**
+     * convierteFloat. Convertimos a una cadena a un float, sí esto falla regresamos un 0.
+     * @param str el número que queremos convertir.
+     * @return el número convertido o 0.
+     */
+    public float convierteFloat(String str) {
+        float i = 0;
+        try {
+            i = Float.parseFloat(str);
+        } catch (NumberFormatException nfe) {
+            System.out.println(nfe.getMessage());
+        }
+        return i;
+    }
 }

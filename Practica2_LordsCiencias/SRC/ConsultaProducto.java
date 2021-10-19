@@ -52,10 +52,10 @@ public class ConsultaProducto extends ConsultaGen {
                     nombre = info[i];
                     break;
                 case 1:
-                    precio = Float.parseFloat(info[i]);
+                    precio = this.convierteFloat(info[i]);
                     break;
                 case 2:
-                    cantidadDeUnidades = Integer.parseInt(info[i]);
+                    cantidadDeUnidades = this.convierteInt(info[i]);
                     break;
                 case 3:
                     descripcion = info[i];
@@ -64,7 +64,7 @@ public class ConsultaProducto extends ConsultaGen {
                     nombreArchivoImagen = info[i];
                     break;
                 case 5:
-                    descuento = Float.parseFloat(info[i]);
+                    descuento = this.convierteFloat(info[i]);
                     break;
             }
         }
