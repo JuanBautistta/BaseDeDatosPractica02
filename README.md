@@ -37,7 +37,32 @@ javac BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/*.java
 java BaseDeDatosPractica02/Practica2_LordsCiencias/SRC/Main
 ```
 
-## Uso
+## Uso 
+ Al ejecutar la aplicación siguiendo los pasos antes mecionados, se desplegara por medio de la terminal un menú en el cual
+ se mostraran las tablas, de las cuales estamos guardando información, tambien se mostrara la opción salir en caso de querer
+ abandonar la aplicación. Al elegir una entidad se desplegara otro menú el cual nos dara las opciones de agregar,consultar,
+ editar,eliminar y regresar al menu principal, a continuación se detalla el uso de cada una de estas opciones.
+
+ Agregar: 
+    1.-Se pediran los datos del objeto que se desea agregar.
+    2.-Una vez finalizado , automanticamente se agregara a la BD. En caso de que los datos
+       sean incorrectos se le notificara.
+    *Comentario: Asegurese de que los datos ingresados sean del tipo adeacuado.
+ Consultar:
+    1.-Se despliaga automanticamente la información relacionada con alguna tabla de la BD
+ Modificar:
+    1.-Se pedira al usuario todos los datos, de el objeto a modificar.
+    2.-De encontrarlo se pediran de nuevo todos los datos, en esta parte se podran insertar las 
+        modificaciones necesarias.En caso de no encontrarlo se le notificara al usurio.
+    3.-Al finalizar los cambios, se mostrara un mensaje indicando que el elemento se agrego exitosamente.
+    *Comentario: Al ingresar los datos, asegurese que sean correctos y del tipo adecuado.
+ Eliminar: 
+    1.-Se pediran los datos del objeto a eliminar.
+    2.-De encontrar dicho elemento, se eliminara. En caso contrario se mostrara un mensaje de objeto
+       no encontrado.
+    *Comentario: Al ingresar los datos, asegurese que sean correctos y del tipo adecuado.
+ Menu Principal: Nos regresa al menu principal
+## Ejemplo de Uso
 
 ```bash
 ================= Gestión de Tienda Virtual =================
