@@ -2,9 +2,10 @@ package BaseDeDatosPractica02.Practica2_LordsCiencias.SRC;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 public class OperarArchivos extends LecturaYEscritura{
- 
+
     /**
      * Constructor que solicisa un nombre de archivo.
      * @param nombreArchivo el nombre del archivo en el que se quiere leer y escribir;
@@ -17,16 +18,19 @@ public class OperarArchivos extends LecturaYEscritura{
      * Metodo que recibe una lista de tipo T, y los ecribe en el archivo especificado.
      * @param <T> El tipo de los elementos a guardar.
      * @param datos la lista de datos a guardar, cada elemento en la lista corresponde a un dato.
+     * @throws IOException Excepción
      */
-    public <T> void escribeOpeador(List<T> datos) {
+    public <T> void escribeOpeador(List<T> datos) throws IOException {
         StringBuilder lineaOperador = new StringBuilder();
         for (T o : datos)
             lineaOperador.append(o.toString() + "\n");
         super.escribeArchivo(lineaOperador.toString());
     }
-    
+
     /**
      * Metodo que convierte un arreglo de String a un arreglo de Operadores
+     * @param tipo Recibe un tipo de registro
+     * @param <T> Dato parámetro
      * @return operadores -- El arreglo de operadores
      * @throws ArchivoNoExiste -- Se lanza la excepción cuando el archivo no existe
      */

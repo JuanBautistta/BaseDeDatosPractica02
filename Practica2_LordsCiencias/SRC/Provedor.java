@@ -17,7 +17,11 @@ public class Provedor {
 
     /**
     * Constructor de la clase proveedor
-    */  
+    * @param nombre Nombre para el proveedor
+    * @param registroFederalDeContributentes RFC del proveedor
+    * @param direccion Dirección del proveedor
+    * @param telefonos Telefonos del proveedor
+    */
     public Provedor(String nombre, String registroFederalDeContributentes, Direccion direccion, Telefono[] telefonos) {
         this.nombre = nombre;
         this.registroFederalDeContributentes = registroFederalDeContributentes;

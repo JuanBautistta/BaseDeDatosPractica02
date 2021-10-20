@@ -9,7 +9,7 @@ public class Telefono {
 
     /**
      * Metodo para crear numeros de telefonos.
-     * @param numeroDeTelefono
+     * @param numeroDeTelefono Número telefónico
      */
     public Telefono(int numeroDeTelefono) {
         this.numeroDeTelefono = numeroDeTelefono;
@@ -17,7 +17,7 @@ public class Telefono {
 
     /**
      * Metodo que obtiene el numero de telefono.
-     * @return
+     * @return Entero que es el número de telefono
      */
     public int getNumeroDeTelefono() {
         return numeroDeTelefono;

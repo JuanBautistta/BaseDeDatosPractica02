@@ -35,6 +35,9 @@ public class GestionTienda{
 
   /**
     * Método que inicia la gestión de la tienda virtual.
+    * @throws FileNotFoundException Archivo no encontrado
+    * @throws IOException Excepción, algo fallo
+    * @throws Exception Algo falló
     */
   public void gestionarTienda() throws FileNotFoundException, IOException, Exception{
     boolean bandera = true;

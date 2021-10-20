@@ -22,7 +22,7 @@ public class Cliente extends Persona {
      * @param fechaNacimiento la fecha de nacimiento del cliente.
      * @param genero el genero del cliente.
      * @param direccion la direccion del cliente.
-     * @param cURP el curp del cliente.
+     * @param curp el curp del cliente.
      * @param correoElectronico el correo electronico del cliente con el que se dio de alta.
      * @param password la contraseña del cliente.
      * @param metodoDePago el metodo de pago del cliente.

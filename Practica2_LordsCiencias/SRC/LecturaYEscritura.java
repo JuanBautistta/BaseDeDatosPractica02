@@ -35,9 +35,9 @@ public class LecturaYEscritura {
     /**
      * Metodo que escribe la información en file (archivo a modificar)
      * @param linea -- La información a escribir
-     * @throws IOException
+     * @throws IOException Falló la escritura
      */
-    public void escribeArchivo(String linea){
+    public void escribeArchivo(String linea) throws IOException{
         FileWriter filew; //Objeto para escribir el archivo
         try{
             filew = new FileWriter(file); //Inicializamos para escribir en FILE

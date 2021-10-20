@@ -11,6 +11,7 @@ public abstract class ConsultaGen {
      * Generamos el mensaje para que el usuario introduzca la
      * información que se va a agregar, consultar, editar o eliminar.
      * @param i el atributo que se va a pedir.
+     * @return abstract 
      */
     public abstract String generaMensaje(int i);
 
